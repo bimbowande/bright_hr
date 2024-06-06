@@ -1,8 +1,8 @@
-import { EmployeeList } from "@/domain";
 import { getAbsenceConflict, getAllEmployeeAbsence } from "../api";
 import { QueryFunctionContext } from "@tanstack/react-query";
 
-export const fetchAbsence = async (): Promise<EmployeeList> => {
+/**Fetch absence list */
+export const fetchAbsence = async () => {
   const apiRes = await fetch(getAllEmployeeAbsence);
 
   if (!apiRes.ok) {
@@ -11,6 +11,7 @@ export const fetchAbsence = async (): Promise<EmployeeList> => {
   return await apiRes.json();
 };
 
+/**Absence conflict */
 export const AbsenceConflict = async ({
   queryKey,
 }: QueryFunctionContext<[string, string]>) => {

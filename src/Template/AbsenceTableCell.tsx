@@ -3,6 +3,9 @@ import { Employee } from "@/domain";
 import { AbsenceConflict } from "@/services/hooks/fetchAbsence";
 import { useQuery } from "@tanstack/react-query";
 import moment from "moment";
+import { StatusType } from "./Indicators/StatusType";
+import { ConflictType } from "./Indicators/ConflictType";
+
 
 export const AbsenceTableCell = ({
   startDate,
@@ -15,21 +18,21 @@ export const AbsenceTableCell = ({
     queryKey: ["Employee Conflict", employee.id],
     queryFn: AbsenceConflict,
   });
-  const isConflict: { conflicts: boolean } = data?.conflicts;
+
   const formatDate = (date: Date) => moment(date).format("MMM D, YYYY");
   return (
-    <TableRow>
-      <TableCell className="font-medium">
+    <TableRow className="px-10">
+      <TableCell className="font-medium py-[10px]">
         {`${employee.firstName} ${employee.lastName}`}
       </TableCell>
       <TableCell>{formatDate(startDate)}</TableCell>
       <TableCell> {days}</TableCell>
       <TableCell>{absenceType}</TableCell>
-      <TableCell className="text-right">
-        {approved ? "Approved" : "Disapproved"}
+      <TableCell className="text-center">
+        <StatusType type={approved} />
       </TableCell>
       <TableCell className="text-right">
-        {isConflict ? "true" : "false"}
+        <ConflictType conflicts={data?.conflicts} />
       </TableCell>
     </TableRow>
   );
