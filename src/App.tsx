@@ -8,7 +8,6 @@ import { Employee } from "./domain";
 
 export default function App() {
   const [sortCriteria, updateCriteria] = useState<string | null>();
-  
   const [sortedList, updateSortedList] = useState<Employee[]>([]);
   const { data, isLoading } = useQuery({
     queryKey: ["absence"],

@@ -5,7 +5,7 @@ export interface IEmployeeDetails {
 }
 
 export type Employee = {
-  startDate: Date;
+  startDate: string;
   days: number;
   absenceType: "SICKNESS" | "ANNUAL_LEAVE" | "MEDICAL";
   employee: IEmployeeDetails;
