@@ -7,7 +7,6 @@ describe("Test suite for Table Header component", () => {
 
   beforeEach(() => {
     render(<AbsenceHeader sortingUpdate={sortingUpdate} />);
-    screen.debug();
   });
 
   it("render all table header and sorting icon", () => {
