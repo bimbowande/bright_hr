@@ -1,6 +1,6 @@
 import { describe, expect, it, vi, beforeEach } from "vitest";
 import { AbsenceHeader } from "./AbsenceHeader";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 
 describe("Test suite for Table Header component", () => {
   const sortingUpdate = vi.fn();
@@ -17,5 +17,19 @@ describe("Test suite for Table Header component", () => {
     expect(screen.getByText(/Absence Type/i)).toBeInTheDocument();
     expect(screen.getByText(/Status/i)).toBeInTheDocument();
     expect(screen.getByText(/Conflict/i)).toBeInTheDocument();
+    expect(screen.getAllByTestId(/sort_icon_/i).length).toBe(3);
+  });
+
+  it("it sorts by name", () => {
+    fireEvent.click(screen.getByTestId("sort_icon_name"));
+    expect(sortingUpdate).toBeCalledWith("name");
+  });
+  it("it sorts by date", () => {
+    fireEvent.click(screen.getByTestId("sort_icon_date"));
+    expect(sortingUpdate).toBeCalledWith("date");
+  });
+  it("it sorts by absence type ", () => {
+    fireEvent.click(screen.getByTestId("sort_icon_type"));
+    expect(sortingUpdate).toBeCalledWith("absence_type");
   });
 });
