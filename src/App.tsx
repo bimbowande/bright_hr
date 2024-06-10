@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchAbsence } from "./services/hooks/fetchAbsence";
 import { Table, TableCaption } from "@/components/ui/table";
-import { AbsenceHeader } from "./Template/AbsenceHeader";
+import { AbsenceHeader } from "./Template/AbsenceHeader/AbsenceHeader";
 import { AbsenceTableBody } from "./Template/AbsenceTableBody";
 import { useCallback, useEffect, useState } from "react";
 import { Employee } from "./domain";
