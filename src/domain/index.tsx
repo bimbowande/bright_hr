@@ -5,7 +5,8 @@ export interface IEmployeeDetails {
 }
 
 export type Employee = {
-  startDate: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  startDate: any;
   days: number;
   absenceType: "SICKNESS" | "ANNUAL_LEAVE" | "MEDICAL";
   employee: IEmployeeDetails;

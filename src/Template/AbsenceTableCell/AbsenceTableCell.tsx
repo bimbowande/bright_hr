@@ -3,9 +3,8 @@ import { Employee } from "@/domain";
 import { AbsenceConflict } from "@/services/hooks/fetchAbsence";
 import { useQuery } from "@tanstack/react-query";
 import moment from "moment";
-import { StatusType } from "./Indicators/StatusType";
-import { ConflictType } from "./Indicators/ConflictType";
-
+import { StatusType } from "../Indicators/StatusType";
+import { ConflictType } from "../Indicators/ConflictType";
 
 export const AbsenceTableCell = ({
   startDate,

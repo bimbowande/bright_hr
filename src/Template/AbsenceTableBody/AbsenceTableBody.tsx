@@ -1,6 +1,6 @@
 import { TableBody } from "@/components/ui/table";
 
-import { AbsenceTableCell } from "./AbsenceTableCell";
+import { AbsenceTableCell } from "../AbsenceTableCell/AbsenceTableCell";
 import { Employee, EmployeeList } from "@/domain";
 
 export const AbsenceTableBody = ({ employees }: EmployeeList) => {
@@ -8,6 +8,7 @@ export const AbsenceTableBody = ({ employees }: EmployeeList) => {
     <TableBody>
       {employees.map((emp: Employee, i: number) => (
         <AbsenceTableCell
+          data-testid="absence-table-cell"
           key={i}
           startDate={emp.startDate}
           days={emp.days}
